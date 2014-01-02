@@ -15,9 +15,14 @@ describe NBA::Team, '.all' do
       expect(a_request(:get, 'https://www.googleapis.com/freebase/v1/mqlread').with(:query => {:query => NBA::Team.mql_query})).to have_been_made
     end
 
-    it 'returns the correct results' do
+    it 'returns the correct team results' do
       teams = NBA::Team.all
       expect(teams.first.name).to eq 'Atlanta Hawks'
+    end
+
+    it 'returns the correct player results' do
+      teams = NBA::Team.all
+      expect(teams.first.players.first.name).to eq 'Al Horford'
     end
   end
 
