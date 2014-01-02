@@ -8,7 +8,10 @@
 
 NBA.rb is a Ruby library for retrieving NBA League players, teams and divisions.
 
-Insipred by @sferik's [MLB](https://github.com/sferik/mlb).
+Insipred by [@sferik][sferik]'s [MLB.rb][mlb].
+
+[sferik]: https://github.com/sferik
+[mlb]: https://github.com/sferik/mlb
 
 ## Installation
     gem install nba
