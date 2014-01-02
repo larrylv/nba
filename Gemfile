@@ -16,5 +16,8 @@ group :test do
   gem 'webmock'
 end
 
+gem 'jruby-openssl', :platforms => :jruby
+gem 'rubysl', '~> 2.0', :platform => :rbx
+
 # Specify your gem's dependencies in nba.gemspec
 gemspec
