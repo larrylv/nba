@@ -11,7 +11,7 @@ module NBA
     # Returns an array of Player objects given a team roster
     def self.all_from_roster(players)
       players.map do |player|
-        next if player['to'] != nil
+        next unless player['to'].nil?
 
         new(
           :name     => player['player'],
