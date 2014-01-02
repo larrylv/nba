@@ -85,7 +85,8 @@ module NBA
             "player":   null,
             "from":     null,
             "to":       null,
-            "position": []
+            "position": [],
+            "sort": "player"
           }],
           "sort":          "name",
           "type":          "/basketball/basketball_team",
