@@ -10,9 +10,7 @@ module NBA
 
     # Returns an array of Player objects given a team roster
     def self.all_from_roster(players)
-      players.map do |player|
-        next if player['to'] != nil
-
+      players.select{ |player| player['to'].nil? }.map do |player|
         new(
           :name     => player['player'],
           :number   => player['number'],
@@ -20,7 +18,7 @@ module NBA
           :from     => player['from'],
           :to       => "Present"
         )
-      end.compact
+      end
     end
   end
 end
