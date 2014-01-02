@@ -50,4 +50,19 @@ describe NBA::Team, '.all' do
       expect(teams.first.name).to eq 'Atlanta Hawks'
     end
   end
+
+  context 'with no route to host' do
+    before do
+      stub_request(:get, 'https://www.googleapis.com/freebase/v1/mqlread').with(:query => {:query => NBA::Team.mql_query}).to_raise(Errno::EHOSTUNREACH)
+    end
+
+    after do
+      NBA::Team.reset
+    end
+
+    it 'returns the correct results' do
+      teams = NBA::Team.all
+      expect(teams.first.name).to eq 'Atlanta Hawks'
+    end
+  end
 end
