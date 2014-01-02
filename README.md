@@ -1,5 +1,11 @@
 # NBA.rb
 
+[![Gem Version](https://badge.fury.io/rb/nba.png)][gem]
+[![Build Status](https://secure.travis-ci.org/larrylv/nba.png?branch=master)][travis]
+
+[gem]: https://rubygems.org/gems/nba
+[travis]: https://travis-ci.org/larrylv/nba
+
 NBA.rb is a Ruby library for retrieving NBA League players, teams and divisions.
 
 Insipred by @sferik's [MLB](https://github.com/sferik/mlb).
