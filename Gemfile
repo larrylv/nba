@@ -9,5 +9,10 @@ group :development do
   end
 end
 
+group :test do
+  gem 'rspec', '>= 2.11'
+  gem 'webmock'
+end
+
 # Specify your gem's dependencies in nba.gemspec
 gemspec
