@@ -18,7 +18,7 @@ module NBA
           :number   => player['number'],
           :position => player['position'],
           :from     => player['from'],
-          :to       => player['to']
+          :to       => "Present"
         )
       end.compact
     end
