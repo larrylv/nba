@@ -9,10 +9,8 @@ namespace :cache do
   require 'nba'
   desc 'Update the teams file cache'
   task :update do
-    doc = NBA::Team.results_from_freebase(true)
-    File.open('cache/teams.json', 'w') do |file|
-      file.write(doc.body)
-    end
+    doc = NBA::Team.results_from_freebase
+    File.write('cache/teams.json', JSON.pretty_generate(doc))
   end
 end
 
