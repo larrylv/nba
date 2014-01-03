@@ -2,7 +2,9 @@ require 'faraday'
 
 module NBA
   class Team
-    attr_reader :name, :founded, :conference, :division, :championships, :players
+    attr_reader :name, :founded, :conference, :division, :championships, :players, :head_coach, :team_stats
+
+    alias :coach :head_coach
 
     # Returns an array of Team objects
     #
@@ -50,18 +52,16 @@ module NBA
 
     def self.results_to_team(results)
       results['result'].map do |result|
-        founded       = result['/sports/sports_team/founded']
-        conference    = result['/basketball/basketball_team/conference']
-        division      = result['/basketball/basketball_team/division']
-        championships = result['/sports/sports_team/championships']
         players       = result['/sports/sports_team/roster']
 
         new(
           :name          => result['name'],
-          :founded       => founded,
-          :conference    => conference,
-          :division      => division,
-          :championships => championships,
+          :conference    => result['/basketball/basketball_team/conference'],
+          :division      => result['/basketball/basketball_team/division'],
+          :head_coach    => result['/basketball/basketball_team/head_coach'],
+          :team_stats    => result['/basketball/basketball_team/team_stats'],
+          :founded       => result['/sports/sports_team/founded'],
+          :championships => result['/sports/sports_team/championships'],
           :players       => (players ? Player.all_from_roster(players) : [])
         )
       end
@@ -73,11 +73,10 @@ module NBA
         [{
           "name":          null,
           "mid":           null,
-          "/sports/sports_team/founded": null,
-          "/common/topic/image": [],
           "/basketball/basketball_team/head_coach": null,
           "/basketball/basketball_team/conference": null,
           "/basketball/basketball_team/division": null,
+          "/sports/sports_team/founded": null,
           "/sports/sports_team/championships": [],
           "/sports/sports_team/roster": [{
             "number":   null,
@@ -86,6 +85,12 @@ module NBA
             "to":       null,
             "position": [],
             "sort": "player"
+          }],
+          "/basketball/basketball_team/team_stats": [{
+            "optional": true,
+            "season": null,
+            "wins": null,
+            "losses": null
           }],
           "sort":          "name",
           "type":          "/basketball/basketball_team",
