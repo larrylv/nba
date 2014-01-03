@@ -5,7 +5,16 @@ module NBA
     # Returns an array of Team objects
     #
     # @example
-    #   NBA::Game.all.first.name                    # => "Atlanta Hawks"
+    #   NBA::Game.all '20140102'
+    #   >>  Final/OT  -   Cavaliers     87  :  81    Magic
+    #   >>    Final   -      Heat      114  : 123   Warriors
+    #   >>    Final   -     Bulls       94  :  82   Celtics
+    #   >>    Final   -    Thunder      93  :  95     Nets
+    #   >>    Final   -     Spurs      101  : 105    Knicks
+    #   >>    Final   -      Suns       91  :  99  Grizzlies
+    #   >>    Final   -      Jazz       96  :  87    Bucks
+    #   >>    Final   - Trail Blazers  134  : 104   Bobcats
+    #   >>    Final   -     Kings      104  : 113    76ers
     def self.all(date = (Time.now.utc - 5 * 60 * 60).strftime("%Y%m%d"))
       games = results_to_game(results_from_espn(date))
       print(games)

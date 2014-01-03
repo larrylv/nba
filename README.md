@@ -6,7 +6,7 @@
 [gem]: https://rubygems.org/gems/nba
 [travis]: https://travis-ci.org/larrylv/nba
 
-NBA.rb is a Ruby library for retrieving NBA League players, teams and divisions.
+NBA.rb is a Ruby library for retrieving NBA League games, schedules, teams and players.
 
 Insipred by [@sferik][sferik]'s [MLB.rb][mlb].
 
@@ -19,8 +19,17 @@ Insipred by [@sferik][sferik]'s [MLB.rb][mlb].
 ## Usage Examples
     $ irb
     >> require 'nba'
+    >> NBA::Game.all '20140102'
+    #  =>  Final/OT  -   Cavaliers     87  :  81    Magic
+    #  =>    Final   -      Heat      114  : 123   Warriors
+    #  =>    Final   -     Bulls       94  :  82   Celtics
+    #  =>    Final   -    Thunder      93  :  95     Nets
+    #  =>    Final   -     Spurs      101  : 105    Knicks
+    #  =>    Final   -      Suns       91  :  99  Grizzlies
+    #  =>    Final   -      Jazz       96  :  87    Bucks
+    #  =>    Final   - Trail Blazers  134  : 104   Bobcats
+    #  =>    Final   -     Kings      104  : 113    76ers
     >> NBA::Team.all.first.name                    # => "Atlanta Hawks"
-    >> NBA::Team.all.first.division                # => "Southeast Division"
     >> NBA::Team.all.first.founded                 # => 1946
     >> NBA::Team.all.first.players.first.name      # => "Al Horford"
     >> NBA::Team.all.first.players.first.number    # => 15

@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Nba::VERSION
   spec.authors       = ["Larry Lv"]
   spec.email         = ["larrylv1990@gmail.com"]
-  spec.summary       = %q{NBA.rb is a Ruby library for retrieving NBA League players, teams and divisions}
+  spec.summary       = %q{NBA.rb is a Ruby library for retrieving NBA League games, schedules, teams and players.}
   spec.description   = spec.summary
   spec.homepage      = ""
   spec.license       = "MIT"
