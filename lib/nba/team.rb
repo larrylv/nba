@@ -1,5 +1,3 @@
-require 'faraday'
-
 module NBA
   class Team
     attr_reader :name, :founded, :conference, :division, :championships, :players, :head_coach, :team_stats
