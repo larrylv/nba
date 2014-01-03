@@ -37,7 +37,7 @@ module NBA
 
     def self.results_from_freebase
       options = {:query => mql_query}
-      Request.get('/freebase/v1/mqlread', options)
+      Request.get_teams('/freebase/v1/mqlread', options)
     end
 
     def self.results_from_cache
