@@ -16,16 +16,29 @@ module NBA
     #   >>    Final   - Trail Blazers  134  : 104   Bobcats
     #   >>    Final   -     Kings      104  : 113    76ers
     def self.all(date = (Time.now.utc - 5 * 60 * 60).strftime("%Y%m%d"))
-      games = results_to_game(results_from_espn(date))
-      print(games)
+      results = scoreboard(date)
+
+      if results == 'fail'
+        puts "Fail to fetch game scoreboard/schedule!"
+      else
+        puts scoreboard(date).join("\n")
+      end
     end
 
-    def pretty_print(options = {})
-      puts self.status.center(options[:status_length].to_i + 1) + " - " + \
-             self.home_team.center(options[:home_length].to_i + 1) + " " + \
-             self.home_score.center(options[:home_score].to_i + 1) + " : " + \
-             self.away_score.center(options[:away_score].to_i + 1) + " " + \
-             self.away_team.center(options[:away_length].to_i + 1)
+    def self.scoreboard(date = (Time.now.utc - 5 * 60 * 60).strftime("%Y%m%d"))
+      begin
+        format_games(results_to_game(results_from_espn(date)))
+      rescue Faraday::Error::ConnectionFailed, Faraday::Error::TimeoutError, Errno::EHOSTUNREACH
+        "fail"
+      end
+    end
+
+    def pretty_format(options = {})
+      self.status.center(options[:status_length].to_i + 1) + " - " + \
+        self.home_team.center(options[:home_length].to_i + 1) + " " + \
+        self.home_score.center(options[:home_score].to_i + 1) + " : " + \
+        self.away_score.center(options[:away_score].to_i + 1) + " " + \
+        self.away_team.center(options[:away_length].to_i + 1)
     end
 
     private
@@ -46,9 +59,9 @@ module NBA
         }
       end
 
-      def self.print(games)
+      def self.format_games(games)
         length_options = length_options_of(games)
-        games.each { |game| game.pretty_print(length_options) }
+        games.map { |game| game.pretty_format(length_options) }
       end
 
       def self.results_to_game(results)
