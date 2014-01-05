@@ -11,6 +11,7 @@ namespace :cache do
   task :update do
     doc = NBA::Team.results_from_freebase
     File.write('cache/teams.json', JSON.pretty_generate(doc))
+    FileUtils.cp('cache/teams.json', 'spec/fixtures/')
   end
 end
 
