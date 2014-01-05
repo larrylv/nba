@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["larrylv1990@gmail.com"]
   spec.summary       = %q{NBA.rb is a Ruby library for retrieving NBA League games, schedules, teams and players.}
   spec.description   = spec.summary
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/larrylv/nba"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
