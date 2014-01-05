@@ -8,6 +8,10 @@ module NBA
       end
     end
 
+    def pretty_print
+      "#{self.name}, number #{self.number}, position: #{self.positions.join(', ')}"
+    end
+
     # Returns an array of Player objects given a team roster
     def self.all_from_roster(players)
       players.select{ |player| player['to'].nil? }.map do |player|

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe NBA::Game, '.all' do
-  subject { described_class.scoreboard }
-
   before :all do
     @date = '20140104'
   end
+
+  subject { described_class.scoreboard(@date) }
 
   context 'with timeout' do
     before do
