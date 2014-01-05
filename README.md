@@ -17,6 +17,36 @@ Insipred by [@sferik][sferik]'s [MLB.rb][mlb].
     gem install nba
 
 ## Usage Examples
+You could use `nba` command-line tool directly in your terminal.
+
+  	$ nba games --date=20140102
+    Final/OT  -   Cavaliers     87  :  81    Magic
+      Final   -      Heat      114  : 123   Warriors
+      Final   -     Bulls       94  :  82   Celtics
+      Final   -    Thunder      93  :  95     Nets
+      Final   -     Spurs      101  : 105    Knicks
+      Final   -      Suns       91  :  99  Grizzlies
+      Final   -      Jazz       96  :  87    Bucks
+      Final   - Trail Blazers  134  : 104   Bobcats
+      Final   -     Kings      104  : 113    76ers
+  	$ nba teams --name 'Lakers'
+    Name: Los Angeles Lakers
+    Founded: 1947
+    Conference: Western Conference
+    Division: Pacific Division
+    Coach: Mike D'Antoni
+    Championships: 2010 NBA Finals, 2009 NBA Finals
+                   2002 NBA Finals, 2001 NBA Finals
+                   2000 NBA Finals, 1988 NBA Finals
+               	   1987 NBA Finals, 1985 NBA Finals
+               	   1982 NBA Finals, 1980 NBA Finals
+               	   1972 NBA Finals, 1954 NBA Finals
+               	   1953 NBA Finals, 1952 NBA Finals
+               	   1950 NBA Finals, 1949 BAA Finals
+               	   1948 NBL Finals
+
+Or you could use it in `irb`, which is an Interactive Ruby Shell
+
     $ irb
     >> require 'nba'
     >> NBA::Game.all '20140102'
@@ -69,7 +99,7 @@ And, special thanks to [@sfeirk][sferik]!
 
 ## Contributing
 
-1. Fork it ( http://github.com/larrylv/nba/fork )
+1. [Fork it](http://github.com/larrylv/nba/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
