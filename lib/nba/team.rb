@@ -58,7 +58,7 @@ module NBA
           :division      => result['/basketball/basketball_team/division'],
           :head_coach    => result['/basketball/basketball_team/head_coach'],
           :team_stats    => result['/basketball/basketball_team/team_stats'],
-          :founded       => result['/sports/sports_team/founded'],
+          :founded       => result['/sports/sports_team/founded'].to_i,
           :championships => result['/sports/sports_team/championships'],
           :players       => (players ? Player.all_from_roster(players) : [])
         )
