@@ -86,6 +86,7 @@ NBA was built with the following tools:
 * [RSpec][]
 * [vim][]
 * [WebMock][]
+* [Thor][]
 
 [bundler]: http://gembundler.com/
 [freebase]: http://www.freebase.com/
@@ -94,6 +95,7 @@ NBA was built with the following tools:
 [rspec]: http://relishapp.com/rspec/
 [vim]: http://www.vim.org/
 [webmock]: https://github.com/bblimke/webmock
+[thor]: https://github.com/erikhuda/thor
 
 And, special thanks to [@sfeirk][sferik]!
 
